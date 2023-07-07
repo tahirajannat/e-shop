@@ -114,9 +114,10 @@
                         <li class="ml-2 lg:ml-4 relative inline-block">
                             <button id="addToCart" href="">
                                 <div
-                                    class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm"
+                                    id="totalCartItemsCount"
+                                    class="absolute -top-1 right-0 z-10 bg-pink-600 text-white text-xs font-bold px-1 py-0.5 rounded-sm"
                                 >
-                                    12
+                                    0
                                 </div>
                                 <svg
                                     class="h-9 lg:h-10 p-2 text-gray-500"
@@ -155,20 +156,7 @@
                                     >
                                         Subtotal(0 items): $0
                                     </div>
-                                    <button
-                                        type="submit"
-                                        class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                                    >
-                                        Checkout
-                                    </button>
-
-                                    <p class="mt-6 text-center">
-                                        <a
-                                            href="#"
-                                            class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                                            >View Shopping Bag</a
-                                        >
-                                    </p>
+                                    <div id="goToCheckout"></div>
                                 </form>
                             </div>
                         </li>

@@ -28,7 +28,7 @@ const products = [
         title: "Product D",
         brand: "brand D",
         price: 9.99,
-        inStock: 4,
+        inStock: 104,
         image: "https://images.unsplash.com/photo-1659576294143-1da218a2d82e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
     },
 ];
@@ -47,6 +47,8 @@ const products = [
 // Get the product list container element
 const productList = document.getElementById("product-list");
 const totalPriceCount = document.getElementById("totalPrice");
+const totalCartItemsCount = document.getElementById("totalCartItemsCount");
+const goToCheckout = document.getElementById("goToCheckout");
 
 // Map the array of products and generate HTML markup
 const productMarkup = products
@@ -218,13 +220,12 @@ cart.addEventListener("click", () => {
 });
 // Function to handle adding a product to the cart
 //cart array
-const shoppingCart = [];
+let shoppingCart = [];
 
 function addToCart(productId) {
     // Perform the necessary logic to add the product to the cart
     //if the product alredy exist
     if (shoppingCart.some((product) => product.id === productId)) {
-        numberOfUnits("plus", productId);
     } else {
         const product = products.find((product) => product.id === productId);
         console.log("product", product);
@@ -234,6 +235,25 @@ function addToCart(productId) {
         });
 
         updateCart();
+        checkoutButtonVisibility();
+    }
+}
+function checkoutButtonVisibility() {
+    if (shoppingCart.length === 1) {
+        goToCheckout.innerHTML += `<button
+        type="submit"
+        class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+    >
+        Checkout
+    </button>
+
+    <p class="mt-6 text-center">
+        <a
+            href="#"
+            class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+            >View Shopping Bag</a
+        >
+    </p>`;
     }
 }
 
@@ -251,7 +271,10 @@ function renderSubtotal() {
         totalPrice += product.price * product.numberOfUnits;
         totalItems += product.numberOfUnits;
     });
-    totalPriceCount.innerHTML = `Subtotal (${totalItems} products): $${totalPrice}`;
+    totalPriceCount.innerHTML = `Subtotal (${totalItems} products): $${totalPrice.toFixed(
+        2
+    )}`;
+    totalCartItemsCount.innerHTML = `${totalItems}`;
 }
 //Render Cart Items
 const cartItems = document.getElementById("cartItems");
@@ -275,11 +298,11 @@ const cartTemplate = (product) => `<li class="flex items-center py-6">
     >
     ${product.brand}
     </h3>
-    <a
-        href="#"
+    <button
+        onclick="removeProductsFromCart(${product.id})"
         class="font-semibold hover:text-red-500 text-gray-500 text-xs"
-        >Remove</a
-    >
+        >Remove
+    </button>
 </div>
 <div
     class="flex items-center justify-center w-1/5"
@@ -315,12 +338,7 @@ function renderCartItems() {
 //change number of units
 function changeNumberOfUnits(action, productId) {
     console.log("shopping cart items", shoppingCart);
-    // shoppingCart.forEach((element) => {
-    //     console.log({element});
-    // });
-    // if (product.numberOfUnits == 1) {
-    //     return;
-    // }
+
     shoppingCart.map((product) => {
         let numberOfUnits = product.numberOfUnits;
         console.log("number of units", numberOfUnits);
@@ -338,4 +356,11 @@ function changeNumberOfUnits(action, productId) {
     });
 
     updateCart();
+}
+
+//Remove items From cart
+function removeProductsFromCart(productId) {
+    shoppingCart = shoppingCart.filter((product) => product.id != productId);
+    updateCart();
+    checkoutButtonVisibility();
 }
