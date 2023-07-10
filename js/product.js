@@ -31,24 +31,60 @@ const products = [
         inStock: 104,
         image: "https://images.unsplash.com/photo-1659576294143-1da218a2d82e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
     },
+    {
+        id: 3,
+        title: "Product C",
+        brand: "brand C",
+        price: 9.99,
+        inStock: 5,
+        image: "https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp",
+    },
+    {
+        id: 1,
+        title: "Apple Watch Series 7 GPS, Aluminium Case, StarlightSport",
+        brand: "brand A",
+        price: 9.99,
+        inStock: 5,
+        image: "https://images.unsplash.com/photo-1659576294143-1da218a2d82e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    },
+    {
+        id: 2,
+        title: "Product B",
+        brand: "brand B",
+        price: 9.99,
+        inStock: 5,
+        image: "https://images.unsplash.com/photo-1526947425960-945c6e72858f?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTgzODM0NDU&ixlib=rb-1.2.1&q=80",
+    },
+    {
+        id: 3,
+        title: "Product C",
+        brand: "brand C",
+        price: 9.99,
+        inStock: 5,
+        image: "https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp",
+    },
 ];
 
 //
-
-// const addToCartButtons = document.querySelectorAll(".addToCart");
-// for (const button of addToCartButtons) {
-//     button.addEventListener("click", (event) => {
-//         const productId = button.getAttribute("data-product-id");
-//         const quantity = event.target.dataset.quantity;
-//         addProductToCart(productId, quantity);
-//     });
-// }
 
 // Get the product list container element
 const productList = document.getElementById("product-list");
 const totalPriceCount = document.getElementById("totalPrice");
 const totalCartItemsCount = document.getElementById("totalCartItemsCount");
 const goToCheckout = document.getElementById("goToCheckout");
+const cartTotal = document.getElementById("cartTotal");
+//Cart button show hide
+const shoppingCartDropdown = document.querySelector("#shoppingCart");
+const cart = document.querySelector("#addToCart");
+const cartItems = document.getElementById("cartItems");
+
+//wishtlist html elements
+const wishList = document.querySelector("#addToWishList");
+const wishListDropdown = document.querySelector("#shoppingWishList");
+const WishListItems = document.getElementById("wishListItems");
+const totalWishListItemsCount = document.getElementById(
+    "totalWishListItemsCount"
+);
 
 // Map the array of products and generate HTML markup
 const productMarkup = products
@@ -69,7 +105,7 @@ const productMarkup = products
     <div
         class="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300"
     >
-        <button
+        <button onclick="addToWishList(${product.id})"
             class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
         >
             <svg
@@ -210,10 +246,6 @@ const productMarkup = products
 // Insert the generated markup into the product list container
 productList.insertAdjacentHTML("beforeend", productMarkup);
 
-//Cart button show hide
-const shoppingCartDropdown = document.querySelector("#shoppingCart");
-const cart = document.querySelector("#addToCart");
-
 cart.addEventListener("click", () => {
     shoppingCartDropdown.style.display =
         shoppingCartDropdown.style.display === "block" ? "none" : "block";
@@ -223,7 +255,6 @@ cart.addEventListener("click", () => {
 let shoppingCart = [];
 
 function addToCart(productId) {
-    // Perform the necessary logic to add the product to the cart
     //if the product alredy exist
     if (shoppingCart.some((product) => product.id === productId)) {
     } else {
@@ -238,6 +269,8 @@ function addToCart(productId) {
         checkoutButtonVisibility();
     }
 }
+
+//checkout visibility
 function checkoutButtonVisibility() {
     if (shoppingCart.length === 1) {
         goToCheckout.innerHTML += `<button
@@ -274,10 +307,10 @@ function renderSubtotal() {
     totalPriceCount.innerHTML = `Subtotal (${totalItems} products): $${totalPrice.toFixed(
         2
     )}`;
+    cartTotal.innerHTML = `$${totalPrice.toFixed(2)}`;
     totalCartItemsCount.innerHTML = `${totalItems}`;
 }
 //Render Cart Items
-const cartItems = document.getElementById("cartItems");
 const cartTemplate = (product) => `<li class="flex items-center py-6">
 <img
     src="${product.image}"
@@ -307,7 +340,7 @@ const cartTemplate = (product) => `<li class="flex items-center py-6">
 <div
     class="flex items-center justify-center w-1/5"
 >
-    <button onclick="changeNumberOfUnits('minus',${product.id})"> + </button>
+    <button onclick="changeNumberOfUnits('minus',${product.id})"> - </button>
 
     <input
         class="mx-2 border text-center w-8 text-black"
@@ -316,16 +349,7 @@ const cartTemplate = (product) => `<li class="flex items-center py-6">
     />
   
 
-  <button onclick="changeNumberOfUnits('plus', ${product.id})">
-  <svg
-  class="fill-current text-black w-2"
-  viewBox="0 0 448 512"
->
-  <path
-      d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-  />
-</svg>
-  </button>
+  <button onclick="changeNumberOfUnits('plus', ${product.id})"> + </button>
 </div>
 </li>`;
 function renderCartItems() {
@@ -363,4 +387,79 @@ function removeProductsFromCart(productId) {
     shoppingCart = shoppingCart.filter((product) => product.id != productId);
     updateCart();
     checkoutButtonVisibility();
+}
+
+//Add to Wishlist
+let shoppingWishlist = [];
+wishList.addEventListener("click", () => {
+    wishListDropdown.style.display =
+        wishListDropdown.style.display === "block" ? "none" : "block";
+});
+//Render Wishlist Items
+const wishListTemplate = (product) => `<li class="flex items-center py-6">
+<img
+    src="${product.image}"
+    alt="${product.title}"
+    class="h-16 w-16 flex-none rounded-md border border-gray-200"
+/>
+<div class="ml-4 flex-auto">
+    <h2
+        class="font-medium text-gray-900"
+    >
+        <a href="#">${product.title}</a>
+    </h2>
+    <p class="text-gray-500">
+        ${product.price}
+    </p>
+    <h3
+        class="text-red-500 text-xs"
+    >
+    ${product.brand}
+    </h3>
+    <button
+        onclick="removeProductsFromCart(${product.id})"
+        class="font-semibold hover:text-red-500 text-gray-500 text-xs"
+        >Remove
+    </button>
+</div>
+
+</li>`;
+function addToWishList(productId) {
+    //if the product alredy exist
+    if (shoppingWishlist.some((product) => product.id === productId)) {
+    } else {
+        const product = products.find((product) => product.id === productId);
+        console.log("product", product);
+        shoppingWishlist.push({
+            ...product,
+            numberOfUnits: 1,
+        });
+
+        updateWishList();
+        // checkoutButtonVisibility();
+    }
+}
+function renderWishListtItems() {
+    WishListItems.innerHTML = "";
+    shoppingWishlist.forEach((product) => {
+        WishListItems.insertAdjacentHTML(
+            "beforeend",
+            wishListTemplate(product)
+        );
+    });
+}
+///calculte Product Price
+function renderWishList() {
+    let totalItems = 0;
+    shoppingWishlist.forEach((product) => {
+        totalItems += product.numberOfUnits;
+    });
+
+    totalWishListItemsCount.innerHTML = `${totalItems}`;
+}
+
+//Update wishlist
+function updateWishList() {
+    renderWishListtItems();
+    renderWishList();
 }

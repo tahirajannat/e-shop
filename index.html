@@ -8,15 +8,17 @@
     </head>
 
     <body>
+        <!-- Navigation Menu  -->
         <header class="bg-white">
-            <div class="container mx-auto px-4 py-8 flex items-center">
+            <div class="container mx-auto px-4 py-2 flex items-center">
                 <!-- logo -->
-                <div class="mr-auto md:w-48 flex-shrink-0">
-                    <img
+                <div class="mr-auto md:w-48">
+                    <!-- <img
                         class="h-8 md:h-10"
                         src="https://i.ibb.co/98pHdFq/2021-10-27-15h51-15.png"
                         alt=""
-                    />
+                    /> -->
+                    <img class="h-[80px]" src="./img/logoNew.png" alt="" />
                 </div>
 
                 <!-- search -->
@@ -87,11 +89,12 @@
                             </a>
                         </li>
                         <li class="ml-2 lg:ml-4 relative inline-block">
-                            <a class="" href="">
+                            <button id="addToWishList">
                                 <div
+                                    id="totalWishListItemsCount"
                                     class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm"
                                 >
-                                    3
+                                    0
                                 </div>
                                 <svg
                                     class="h-9 lg:h-10 p-2 text-gray-500"
@@ -109,10 +112,26 @@
                                         d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
                                     ></path>
                                 </svg>
-                            </a>
+                            </button>
+                            <div
+                                id="shoppingWishList"
+                                class="absolute z-50 hidden inset-x-0 top-16 mt-px bg-white pb-6 shadow-lg sm:px-2 lg:left-auto lg:right-0 lg:top-full lg:-mr-1.5 lg:mt-3 lg:w-96 lg:rounded-lg lg:ring-1 lg:ring-black lg:ring-opacity-5"
+                            >
+                                <h2 class="sr-only">Shopping Cart</h2>
+
+                                <form class="mx-auto max-w-2xl px-4" id="">
+                                    <ul
+                                        role="list"
+                                        class="divide-y divide-gray-200"
+                                        id="wishListItems"
+                                    >
+                                        <!-- More products... -->
+                                    </ul>
+                                </form>
+                            </div>
                         </li>
                         <li class="ml-2 lg:ml-4 relative inline-block">
-                            <button id="addToCart" href="">
+                            <button id="addToCart">
                                 <div
                                     id="totalCartItemsCount"
                                     class="absolute -top-1 right-0 z-10 bg-pink-600 text-white text-xs font-bold px-1 py-0.5 rounded-sm"
@@ -152,7 +171,7 @@
                                     </ul>
                                     <div
                                         id="totalPrice"
-                                        class="w-full text-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-black shadow-sm"
+                                        class="w-full text-center mt-5 px-4 py-2 text-sm font-medium text-black"
                                     >
                                         Subtotal(0 items): $0
                                     </div>
@@ -166,14 +185,1138 @@
                 <!-- cart count -->
                 <div class="ml-4 hidden sm:flex flex-col font-bold">
                     <span class="text-xs text-gray-400">Your Cart</span>
-                    <span>$2,650,59</span>
+                    <span id="cartTotal">$0</span>
                 </div>
             </div>
 
             <hr />
         </header>
+        <!-- Banner  -->
+        <div
+            class="mx-auto container flex justify-center items-center py-20 px-4 sm:px-6 2xl:px-0"
+        >
+            <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
+            <div
+                class="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-10"
+            >
+                <div
+                    class="w-80 sm:w-auto flex flex-col justify-start items-start"
+                >
+                    <div>
+                        <p
+                            class="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800"
+                        >
+                            Renovate your home
+                        </p>
+                    </div>
+                    <div class="mt-4 lg:w-4/5 xl:w-3/5">
+                        <p class="text-base leading-6 text-gray-600">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when
+                            looking at its layout.
+                        </p>
+                    </div>
+                    <div class="mt-16 w-full">
+                        <button
+                            class="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700 focus:ring-2 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                        >
+                            <p class="text-xl font-medium leading-5">
+                                See More
+                            </p>
+                            <svg
+                                class=""
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M6.66663 16H25.3333"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M20 21.3333L25.3333 16"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M20 10.6667L25.3333 16"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class="flex flex-col sm:flex-row jusitfy-center items-center sm:space-x-5 xl:space-x-8 space-y-4 sm:space-y-0"
+                >
+                    <div class="">
+                        <img
+                            class="hidden lg:block"
+                            src="https://i.ibb.co/61TfVVW/olena-sergienko-gx-KL334b-UK4-unsplash-1.png"
+                            alt="sofa"
+                        />
+                        <img
+                            class="w-80 sm:w-auto lg:hidden"
+                            src="https://i.ibb.co/QvxmJjB/olena-sergienko-gx-KL334b-UK4-unsplash-1-1.png"
+                            alt="sofa"
+                        />
+                    </div>
+                    <div
+                        class="flex flex-col justify-center items-center space-y-4 sm:space-y-0 sm:space-y-5 lg:space-y-5 xl:space-y-8"
+                    >
+                        <div>
+                            <img
+                                class="hidden lg:block"
+                                src="https://i.ibb.co/1MY5P3y/nirzar-pangarkar-Csw-Kf-D546-Z8-unsplash-1.png"
+                                alt="chairs"
+                            />
+                            <img
+                                class="w-80 sm:w-auto lg:hidden"
+                                src="https://i.ibb.co/r0rvcCh/behzad-ghaffarian-nh-Wg-ZNV85-LQ-unsplash-1-1-1.png"
+                                alt="chairs"
+                            />
+                        </div>
+                        <div>
+                            <img
+                                class="hidden lg:block"
+                                src="https://i.ibb.co/9N7ZX2C/behzad-ghaffarian-nh-Wg-ZNV85-LQ-unsplash-1-1.png"
+                                alt="chairs"
+                            />
+                            <img
+                                class="w-80 sm:w-auto lg:hidden"
+                                src="https://i.ibb.co/0BFt400/nirzar-pangarkar-Csw-Kf-D546-Z8-unsplash-2.png"
+                                alt="chairs"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Product Slider  -->
+        <div class="product mx-auto container px-6">
+            <!-- title -->
+
+            <div class="text-center mt-20 p-10">
+                <h2 class="font-bold text-4xl mb-4">Featured Product</h2>
+            </div>
+            <div class="gallery mx-auto bg-white relative">
+                <div class="ml-auto flex text-gray-600 mr-1 justify-between">
+                    <button
+                        class="pre-btn absolute top-1/2 left-0 transform -translate-x-0 -translate-y-1/2 z-50"
+                    >
+                        <svg
+                            class="h-8 w-8 fill-pink-600 shadow-md bg-white"
+                            width="800"
+                            height="800"
+                            viewBox="0 0 24 24"
+                            version="1.2"
+                            baseProfile="tiny"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M17 11H9.414l2.293-2.293a.999.999 0 1 0-1.414-1.414L5.586 12l4.707 4.707a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L9.414 13H17a1 1 0 0 0 0-2z"
+                            />
+                        </svg>
+                    </button>
+
+                    <button
+                        class="nxt-btn absolute top-1/2 right-0 transform -translate-x-0 -translate-y-1/2 z-50"
+                    >
+                        <svg
+                            class="h-8 w-8 fill-pink-600 shadow-md bg-white"
+                            width="800"
+                            height="800"
+                            viewBox="0 0 24 24"
+                            version="1.2"
+                            baseProfile="tiny"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div class="w-full h-96 overflow-hidden z-0 product-container">
+                    <div class="shadow-xl h-full flex carousel">
+                        <!-- 1st card  -->
+                        <div
+                            class="flex-shrink-0 mr-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1" id="cat"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2nd card -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Monstera</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$45.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...3rd cars  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4th card  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...5th cars  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2nd card -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Monstera</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$45.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...3rd cars  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4th card  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...5th cars  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1st card  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2nd card -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Monstera</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$45.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...3rd cars  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4th card  -->
+                        <div
+                            class="flex-shrink-0 mx-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Indoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Peace Lily</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$36.00</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ...5th cars  -->
+                        <div
+                            class="flex-shrink-0 ml-6 relative overflow-hidden bg-purple-500 rounded-lg max-w-xs shadow-lg"
+                        >
+                            <svg
+                                class="absolute bottom-0 left-0 mb-8"
+                                viewBox="0 0 375 283"
+                                fill="none"
+                                style="transform: scale(1.5); opacity: 0.1"
+                            >
+                                <rect
+                                    x="159.52"
+                                    y="175"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 159.52 175)"
+                                    fill="white"
+                                />
+                                <rect
+                                    y="107.48"
+                                    width="152"
+                                    height="152"
+                                    rx="8"
+                                    transform="rotate(-45 0 107.48)"
+                                    fill="white"
+                                />
+                            </svg>
+                            <div
+                                class="relative pt-10 px-10 flex items-center justify-center"
+                            >
+                                <div
+                                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="
+                                        background: radial-gradient(
+                                            black,
+                                            transparent 60%
+                                        );
+                                        transform: rotate3d(0, 0, 1, 20deg)
+                                            scale3d(1, 0.6, 1);
+                                        opacity: 0.2;
+                                    "
+                                ></div>
+                                <img
+                                    class="relative w-40"
+                                    src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block opacity-75 -mb-1"
+                                    >Outdoor</span
+                                >
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-xl"
+                                        >Oak Tree</span
+                                    >
+                                    <span
+                                        class="block bg-white rounded-full text-purple-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                        >$68.50</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- title -->
-        <div class="text-center p-10">
+        <div class="text-center mt-20 p-10">
             <h1 class="font-bold text-4xl mb-4">
                 Responsive Product card grid
             </h1>
@@ -189,5 +1332,6 @@
         </section>
 
         <script src="./js/product.js"></script>
+        <script src="./js/featured.js"></script>
     </body>
 </html>
