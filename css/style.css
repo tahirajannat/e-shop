@@ -1,0 +1,19 @@
+/* .wrapper {
+    width: 590px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+} */
+.content {
+    display: none;
+    /* padding: 10px 20px; */
+}
+button.active {
+    border-bottom: 2px solid #da2877;
+    @apply border-b-2  border-pink-600;
+}
+
+.content.active {
+    display: block;
+}

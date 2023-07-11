@@ -20,6 +20,7 @@ const dragging = (e) => {
     carousel.scrollLeft += positionDiff - prevScrollLeft;
     // carousel.style.transition = "10s";
 };
+
 const dragStop = () => {
     isDragStart = false;
 };
@@ -30,17 +31,23 @@ carousel.addEventListener("mouseup", (e) => {
     // e.preventDefault();
     let positionDiff = e.pageX;
     carousel.scrollLeft += positionDiff - prevScrollLeft;
-    carousel.style.transition = "all 2s";
+
+    // carousel.style.transform = `translateX(-50%)`;
+    carousel.style.color = `#f00`;
     document.getElementById("cat").style.color = "blue";
 });
+
 carousel.addEventListener("mousemove", dragStop);
 
 productContainer.forEach((item, i) => {
     let containerDimensions = item.getBoundingClientRect();
     let containerWidth = containerDimensions.width;
     nxtBtn[i].addEventListener("click", () => {
-        item.scrollLeft += containerWidth;
         console.log("pressed next btn");
+        item.scrollLeft += containerWidth;
+        // setInterval(() => {
+        //     item.scrollLeft += containerWidth;
+        // }, 300);
     });
     prevBtn[i].addEventListener("click", () => {
         item.scrollLeft -= containerWidth;
