@@ -5,35 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <style>
-            .error {
-                color: red;
+            .card {
+                background-color: #f1f1f1;
+                padding: 20px;
+                border-radius: 5px;
+                text-align: center;
             }
 
-            .error-message {
-                font-size: 14px;
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .title {
+                font-size: 24px;
+                margin-top: 10px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+                color: #888;
                 margin-top: 5px;
-                color: blue;
             }
 
-            input {
-                margin-bottom: 10px;
+            .list {
+                text-align: left;
+                margin-top: 20px;
+                padding-left: 0;
+            }
+
+            .list li {
+                list-style-type: none;
+                margin-bottom: 5px;
+            }
+
+            .button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 3px;
+                margin-top: 20px;
+                cursor: pointer;
             }
         </style>
     </head>
     <body>
-        <form id="myForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required />
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required />
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" required />
-
-            <button type="submit">Submit</button>
-        </form>
-
-        <script src="./js/slider.js"></script>
+        <div class="card">
+            <img src="logo.png" class="logo" />
+            <h2 class="title">Title</h2>
+            <h3 class="subtitle">Subtitle</h3>
+            <ul class="list">
+                <li>List Element 1</li>
+                <li>List Element 2</li>
+                <li>List Element 3</li>
+            </ul>
+            <button class="button">Button</button>
+        </div>
     </body>
 </html>

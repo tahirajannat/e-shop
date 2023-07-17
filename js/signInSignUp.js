@@ -77,9 +77,132 @@ function validateFormSignIn(e) {
 // }
 
 // Event listener for form submission
-formSignIn.addEventListener("submit", () => {
-    if (validateFormSignIn === true) {
-        window.location.href = "index.html";
+// formSignIn.addEventListener("submit", () => {
+//     if (validateFormSignIn === true) {
+//         window.location.href = "index.html";
+//     }
+//     validateFormSignIn();
+// });
+
+const btnRegister = document.getElementById("btnRegister");
+
+// btnRegister.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     const firstName = document.getElementById("firstName").value;
+//     const lastName = document.getElementById("lastName").value;
+//     const userEmail = document.getElementById("email").value;
+//     const userPass = document.getElementById("password").value;
+
+//     if (!firstName || !lastName || !userEmail || !userPass) {
+//         alert("Please fill out the forms.");
+//         return;
+//     }
+//     var users = JSON.parse(localStorage.getItem("Users")) || [];
+//     var userData = [firstName, lastName, userEmail, userPass];
+//     users.push(userData);
+//     localStorage.setItem("Users", JSON.stringify(users));
+//     var users = JSON.parse(localStorage.getItem("Users")) || [];
+//     users.forEach(console.log);
+//     users[0];
+//     users[1];
+// });
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const userEmail = document.getElementById("email");
+const userPass = document.getElementById("password");
+btnRegister.onclick = function () {
+    // when mouse click "signup" button
+    const first_name = firstName.value;
+    const last_name = lastName.value;
+    const e_mail = userEmail.value;
+    const pass_word = userPass.value;
+
+    if (first_name && last_name && e_mail && pass_word) {
+        let userInfo = { first_name, last_name, e_mail, pass_word };
+        // localStorage.setItem("First Name", first_name);
+        // localStorage.setItem("Last Name", last_name);
+        // localStorage.setItem("Email", e_mail);
+        // JSON.parse(localStorage.getItem("AllUserInfo", userData));
+        // // console.log(userData);
+        // if (userData) {
+        //     let currentData = userData.push(userInfo);
+        //     console.log("user data");
+        //     console.log("current Dat", currentData);
+        //     localStorage.setItem("AllUserInfo", JSON.stringify(currentData));
+        // } else {
+        //     localStorage.setItem("AllUserInfo", JSON.stringify([userInfo]));
+        // }
+
+        var users = JSON.parse(localStorage.getItem("Users")) || [];
+        var userData = { first_name, last_name, e_mail, pass_word };
+        users.push(userData);
+        localStorage.setItem("Users", JSON.stringify(users));
+        var users = JSON.parse(localStorage.getItem("Users")) || [];
+        users.forEach(console.log);
+        users[0];
+        users[1];
+    } else {
+        alert("Please fill out the forms.");
     }
-    validateFormSignIn();
+};
+
+0;
+
+function validlogin() {
+    const signInEmailInput = document.getElementById("signInEmailInput").value;
+    const signInPassInput = document.getElementById("signInPassInput").value;
+
+    let userRecord = new Array();
+    userRecord = JSON.parse(localStorage.getItem("Users"))
+        ? JSON.parse(localStorage.getItem("Users"))
+        : [];
+    // console.log("user record", localStorage.getItem("Users"));
+    // console.log("typeof", typeof localStorage.getItem("Users"));
+    // let currentUser = userRecord.filter((user) => {
+    //     return (
+    //         user.e_mail == signInEmailInput && user.pass_word == signInPassInput
+    //     );
+    // })[0];
+    if (
+        userRecord.some((user) => {
+            return (
+                user.e_mail == signInEmailInput &&
+                user.pass_word == signInPassInput
+            );
+        })
+    ) {
+        alert("Logged In Successfully");
+        // window.location.href = "/account.html";
+
+        let currentUser = userRecord.filter((user) => {
+            return (
+                user.e_mail == signInEmailInput &&
+                user.pass_word == signInPassInput
+            );
+        })[0];
+
+        console.log("currentUser", currentUser);
+        localStorage.setItem("Name", currentUser.first_name);
+        console.log("Name", currentUser.first_name);
+        localStorage.setItem("Email", currentUser.e_mail);
+        console.log("Email", currentUser.e_mail);
+        window.location.href = "/account.html";
+        // window.location.href = "/account.html";
+    } else {
+        alert("Enter valid input");
+    }
+}
+
+const userloginInfo = document.getElementById("currentUserInfo");
+
+// Event listener for form submission
+formSignIn.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validlogin();
+    userloginInfo.innerHTML += ` <h3 class="font-semibold text-lg">
+   ${currentUser.first_name}
+</h3>
+<p class="text-light text-gray-400">
+    ${currentUser.e_mail}
+</p>`;
 });
