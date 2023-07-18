@@ -182,10 +182,12 @@ function validlogin() {
         })[0];
 
         console.log("currentUser", currentUser);
-        localStorage.setItem("Name", currentUser.first_name);
+        localStorage.setItem("FirstName", currentUser.first_name);
         console.log("Name", currentUser.first_name);
         localStorage.setItem("Email", currentUser.e_mail);
+        localStorage.setItem("LastName", currentUser.last_name);
         console.log("Email", currentUser.e_mail);
+        console.log("LastName", currentUser.last_name);
         window.location.href = "/account.html";
         // window.location.href = "/account.html";
     } else {
@@ -199,10 +201,4 @@ const userloginInfo = document.getElementById("currentUserInfo");
 formSignIn.addEventListener("submit", (e) => {
     e.preventDefault();
     validlogin();
-    userloginInfo.innerHTML += ` <h3 class="font-semibold text-lg">
-   ${currentUser.first_name}
-</h3>
-<p class="text-light text-gray-400">
-    ${currentUser.e_mail}
-</p>`;
 });
