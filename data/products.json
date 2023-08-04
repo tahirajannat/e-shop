@@ -1,0 +1,123 @@
+[
+    {
+      "id": 1,
+      "title": "Product A",
+      "brand": "brand A",
+      "price": 29,
+      "inStock": 5,
+      "image": "https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp",
+      "description": "This is product 1.",
+      "category":"A"
+    },
+    {
+      "id": 2,
+      "title": "Product B",
+      "brand": "brand B",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1585398998744-cae0cc1b8140?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+      "description": "This is product 2.",
+      "category":"B"
+    },
+    {
+      "id": 3,
+      "title": "Apple Watch Series 7 GPS, Aluminium Case, StarlightSport",
+      "brand": "brand A",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "description": "This is product 2.",
+      "category":"C"
+  },
+  {
+      "id": 4,
+      "title": "Product D",
+      "brand": "brand B",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1522040806052-b0aa2b039f00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+      "description": "This is product 2.",
+      "category":"D"
+  },
+  {
+      "id": 5,
+      "title": "Product E",
+      "brand": "brand c",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+      "description": "This is product 2.",
+      "category":"A"
+  },
+  {
+      "id": 6,
+      "title": "Product F",
+      "brand": "brand D",
+      "price": 9.99,
+      "inStock": 104,
+      "image": "https://images.unsplash.com/photo-1664915896817-12a978b85ed4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=924&q=80",
+      "description": "This is product 2.",
+      "category":"A"
+  },
+  {
+      "id": 7,
+      "title": "Product G",
+      "brand": "brand D",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp",
+      "description": "This is product 2.",
+      "category":"B"
+  },
+  {
+      "id": 8,
+      "title": "Apple Watch Series 7 GPS, Aluminium Case, StarlightSport",
+      "brand": "brand A",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80",
+      "description": "This is product 2.",
+      "category":"C"
+  },
+  {
+      "id": 9,
+      "title": "Product E",
+      "brand": "brand c",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.pexels.com/photos/821652/pexels-photo-821652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "This is product 2.",
+      "category":"A"
+  },
+  {
+      "id": 10,
+      "title": "Product F",
+      "brand": "brand c",
+      "price": 9.99,
+      "inStock": 5,
+      "image": "https://images.unsplash.com/photo-1539213465191-6046fe072ade?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "description": "This is product 2.",
+      "category":"D"
+  },
+  {
+    "id": 11,
+    "title": "Product g",
+    "brand": "brand c",
+    "price": 9.99,
+    "inStock": 5,
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80",
+    "description": "This is product 2.",
+    "category":"D"
+},
+{
+    "id": 12,
+    "title": "Product h",
+    "brand": "brand c",
+    "price": 9.99,
+    "inStock": 5,
+    "image": "https://images.unsplash.com/photo-1539213465191-6046fe072ade?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "description": "This is product 2.",
+    "category":"B"
+}
+  ]
+  

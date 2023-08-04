@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Product page content -->
+        <div id="checkbox-container">
+            <input
+                type="checkbox"
+                id="electronics-filter"
+                data-category="electronics"
+            />
+            Electronics
+            <input
+                type="checkbox"
+                id="clothing-filter"
+                data-category="clothing"
+            />
+            Clothing
+            <!-- Add more checkboxes for other categories as needed -->
+        </div>
+
+        <div id="product-container">
+            <div class="product" data-category="electronics">
+                Product 1 (Electronics)
+            </div>
+            <div class="product" data-category="clothing">
+                Product 2 (Clothing)
+            </div>
+            <!-- Add more product cards with different categories -->
+        </div>
+        <script>
+            // Get references to the checkbox container and product container
+            const checkboxContainer =
+                document.getElementById("checkbox-container");
+            const productContainer =
+                document.getElementById("product-container");
+
+            // Add a single event listener to the checkbox container
+            checkboxContainer.addEventListener("change", filterProducts);
+
+            // Event handler for checkbox change event
+            function filterProducts() {
+                // Get all the checked categories from the checkboxes
+                const checkedCategories = Array.from(
+                    checkboxContainer.querySelectorAll(
+                        'input[type="checkbox"]:checked'
+                    )
+                ).map((checkbox) => checkbox.getAttribute("data-category"));
+
+                // Loop through all product cards and check their categories against the selected categories
+                const products =
+                    productContainer.getElementsByClassName("product");
+                for (const product of products) {
+                    const productCategory =
+                        product.getAttribute("data-category");
+                    if (
+                        checkedCategories.length === 0 ||
+                        checkedCategories.includes(productCategory)
+                    ) {
+                        product.style.display = "block"; // Show the product
+                    } else {
+                        product.style.display = "none"; // Hide the product
+                    }
+                }
+            }
+        </script>
+
+        <script src="./js/test.js"></script>
+    </body>
+</html>

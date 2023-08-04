@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./dist/output.css" />
+    </head>
+    <body>
+        <header
+            id="mainNav"
+            class="bg-white shadow sticky top-0 z-50 transition-all duration-100"
+        ></header>
+        <section
+            class="container mx-auto sm:grid sm:grid-cols-12 gap-8 mt-10 mb-5"
+        >
+            <div class="col-span-3 mr-6 bg-gray-50 p-5">
+                <aside>
+                    <h2 class="sr-only">Filters</h2>
+                    <!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
+                    <button
+                        type="button"
+                        class="inline-flex items-center lg:hidden"
+                    >
+                        <span class="text-sm font-medium text-gray-700"
+                            >Filters</span
+                        >
+                        <svg
+                            class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"
+                            />
+                        </svg>
+                    </button>
+
+                    <div class="hidden lg:block">
+                        <form
+                            class="space-y-10 divide-y divide-gray-200"
+                            id="checkbox-container"
+                        >
+                            <div class="pt-4">
+                                <fieldset>
+                                    <legend
+                                        class="block text-sm font-medium text-gray-900"
+                                    >
+                                        Brand
+                                    </legend>
+                                    <div
+                                        class="space-y-3 pt-6"
+                                        id="brandFilter"
+                                    ></div>
+                                </fieldset>
+                            </div>
+                            <div class="pt-4">
+                                <fieldset>
+                                    <legend
+                                        class="block text-sm font-medium text-gray-900"
+                                    >
+                                        Category
+                                    </legend>
+                                    <div
+                                        class="space-y-3 pt-6"
+                                        id="categoryFilter"
+                                    ></div>
+                                </fieldset>
+                            </div>
+                            <div class="pt-4">
+                                <fieldset>
+                                    <legend
+                                        class="block text-sm font-medium text-gray-900"
+                                    >
+                                        Price
+                                    </legend>
+                                    <div class="space-y-3 pt-2">
+                                        <div class="">
+                                            <div>
+                                                <input
+                                                    type="range"
+                                                    id="price"
+                                                    name="price"
+                                                    min="0"
+                                                    max="1000"
+                                                    step="10"
+                                                    class="flex-1 appearance-none w-full h-1 mb-1 bg-gray-400 rounded-lg cursor-pointer range-sm accent-pink-600"
+                                                />
+                                            </div>
+                                            <div
+                                                class="flex items-center justify-between"
+                                            >
+                                                <h3>$0</h3>
+                                                <h3>$1000</h3>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <span
+                                                class="text-gray-700 font-medium"
+                                                >Selected Price:
+                                            </span>
+                                            <span class="text-pink-600"
+                                                >$0-</span
+                                            >
+                                            <span
+                                                class="text-pink-600"
+                                                id="selected-price"
+                                                >$500</span
+                                            >
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="pt-4">
+                                <fieldset>
+                                    <legend
+                                        class="block text-sm font-medium text-gray-900"
+                                    >
+                                        Color
+                                    </legend>
+                                    <div class="space-y-3 pt-6">
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-0"
+                                                name="color[]"
+                                                value="white"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-0"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >White</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-1"
+                                                name="color[]"
+                                                value="beige"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-1"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >Beige</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-2"
+                                                name="color[]"
+                                                value="blue"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-2"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >Blue</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-3"
+                                                name="color[]"
+                                                value="brown"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-3"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >Brown</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-4"
+                                                name="color[]"
+                                                value="green"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-4"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >Green</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="color-5"
+                                                name="color[]"
+                                                value="purple"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="color-5"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >Purple</label
+                                            >
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="pt-4">
+                                <fieldset>
+                                    <legend
+                                        class="block text-sm font-medium text-gray-900"
+                                    >
+                                        Sizes
+                                    </legend>
+                                    <div class="space-y-3 pt-6">
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-0"
+                                                name="sizes[]"
+                                                value="xs"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-0"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >XS</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-1"
+                                                name="sizes[]"
+                                                value="s"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-1"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >S</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-2"
+                                                name="sizes[]"
+                                                value="m"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-2"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >M</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-3"
+                                                name="sizes[]"
+                                                value="l"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-3"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >L</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-4"
+                                                name="sizes[]"
+                                                value="xl"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-4"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >XL</label
+                                            >
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input
+                                                id="sizes-5"
+                                                name="sizes[]"
+                                                value="2xl"
+                                                type="checkbox"
+                                                class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            />
+                                            <label
+                                                for="sizes-5"
+                                                class="ml-3 text-sm text-gray-600"
+                                                >2XL</label
+                                            >
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-span-9">
+                <div
+                    id="product-list"
+                    class="product container mx-auto grid grid-cols-1 lg:grid-cols-3 justify-items-center justify-center gap-12 mb-5"
+                ></div>
+            </div>
+
+            <!--   🛑 Product card 1 - Ends Here  -->
+        </section>
+        <!-- <script src="./js/product.js"></script> -->
+        <script src="./js/index.js"></script>
+        <script src="./js/shop.js"></script>
+    </body>
+</html>
