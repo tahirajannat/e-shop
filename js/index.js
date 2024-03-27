@@ -1,27 +1,21 @@
 const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
 <!-- logo -->
-<div class="mr-auto md:w-48">
+<div class="mr-auto max-w-full w-[25%]">
     <img class="h-16" src="./img/logoNew.png" alt="" />
 </div>
 
 <!-- search -->
 <div
-    class="w-full max-w-xs xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center"
+    class="max-w-full w-[45%] bg-gray-100 rounded-sm hidden xl:flex items-center"
 >
-    <select
-        class="bg-transparent uppercase font-bold text-sm p-4 mr-4"
-        name=""
-        id=""
-    >
-        <option>all categories</option>
-    </select>
+   
     <input
-        class="border-l border-gray-300 bg-transparent font-semibold text-sm pl-4 py-3 w-[63%] focus:outline-1 outline-gray-300 focus:rounded-none"
+        class="  bg-transparent text-sm pl-4 py-2.5  w-full focus:outline-0 outline-gray-300 focus:rounded-none text-gray-600 font-normal "
         type="text"
         placeholder="I'm searching for ..."
     />
     <svg
-        class="ml-auto h-5 px-4 text-gray-500"
+        class="ml-auto h-4 px-4 text-pink-600"
         aria-hidden="true"
         focusable="false"
         data-prefix="far"
@@ -39,25 +33,19 @@ const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
 </div>
 
 <!-- phone number -->
-<div
-    class="ml-auto md:w-48 hidden sm:flex flex-col place-items-end"
->
-    <span class="font-bold md:text-xl">8 800 332 65-66</span>
-    <span class="font-semibold text-sm text-gray-400"
-        >Support 24/7</span
-    >
-</div>
+
 
 <!-- buttons -->
-<nav class="contents">
-    <ul class="ml-4 xl:w-48 flex items-center justify-end">
-        <li class="ml-2 lg:ml-4 relative inline-block">
+<div class="w-[30%] flex gap-7 items-center justify-end">
+<nav class="contents ">
+    <ul class=" flex gap-7 items-center">
+        <li class=" relative inline-block ">
             <button
-                class=""
+                class=" flex gap-3 items-center justify-between px-4 py-1.5 rounded-sm capitalize bg-pink-600 text-white text-base hover:bg-white hover:text-pink-600 border border-pink-600 transition-all duration-300"
                 onclick="window.location.href='/signInSignUp.html'"
             >
                 <svg
-                    class="h-9 lg:h-10 p-2 text-gray-500"
+                    class="h-4"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="far"
@@ -71,19 +59,19 @@ const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
                         fill="currentColor"
                         d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"
                     ></path>
-                </svg>
+                </svg> login
             </button>
         </li>
-        <li class="ml-2 lg:ml-4 relative inline-block">
+        <li class="relative flex gap-4items-center justify-end">
             <button id="addToWishList">
                 <div
                     id="totalWishListItemsCount"
-                    class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm"
+                    class="absolute -top-3 -right-3 z-10 bg-yellow-400 text-xs font-normal px-1.5 py-0.5 text-white  rounded-full"
                 >
                     0
                 </div>
                 <svg
-                    class="h-9 lg:h-10 p-2 text-gray-500"
+                    class="h-5  text-gray-500"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="far"
@@ -116,16 +104,16 @@ const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
                 </form>
             </div>
         </li>
-        <li class="ml-2 lg:ml-4 relative inline-block">
+        <li class="relative flex gap-4items-center justify-end">
             <button id="addToCart">
                 <div
                     id="totalCartItemsCount"
-                    class="absolute -top-1 right-0 z-10 bg-pink-600 text-white text-xs font-bold px-1 py-0.5 rounded-sm"
+                    class="absolute -top-1 -right-1 z-10 bg-pink-600 text-white text-xs font-normal px-1.5 py-0.5 rounded-full"
                 >
                     0
                 </div>
                 <svg
-                    class="h-9 lg:h-10 p-2 text-gray-500"
+                    class="h-9  p-2 text-gray-500"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="far"
@@ -170,40 +158,70 @@ const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
 
 <!-- cart count -->
 <div class="ml-4 hidden sm:flex flex-col font-bold">
-    <span class="text-xs text-gray-400">Your Cart</span>
-    <span id="cartTotal">$0</span>
+    <span class="text-xs font-semibold text-gray-500">Cart Total</span>
+    <span id="cartTotal" class="text-sm font-semibold">$0</span>
 </div>
+</div>
+
 </div>
 
 <hr />`;
 
-let headerContainer = document.getElementById("mainNav");
+//Menu Items
+const headerMenuHtml = ` <div class=' bg-white w-full  sticky top-0 z-50 transition-all duration-100'>
+            <div class='container mx-auto px-4 py-5'>
+                <ul
+                    class='flex gap-8 md:items-center md:pb-0 pb-12  transition-all dease-in '
+                >
+                 <li class='flex items-center text-black font-light ' >
+                     <a href='/' class='text-black  dtext-base font-normal capitalize hover:text-pink-600 transition-all duration-300'>
+                         Home
+                    </a>
+                 </li>
+                 <li class='flex items-center text-black font-light ' >
+                     <a href='shop.html' class='text-black  dtext-base font-normal capitalize hover:text-pink-600 transition-all duration-300'>
+                         Shop
+                    </a>
+                 </li>
+                  <li class='flex items-center text-black font-light ' >
+                     <a href='/shop' class='text-black  dtext-base font-normal capitalize hover:text-pink-600 transition-all duration-300'>
+                         about us
+                    </a>
+                 </li>
+                  
+                </ul>
+            </div>
+        </div>`;
+
+let headerContainer = document.getElementById('mainNav');
+let headerMenuContainer = document.getElementById('mainMenu');
 headerContainer.innerHTML = headerHTML;
+headerMenuContainer.innerHTML = headerMenuHtml;
 
 //
 
 // Get the product list container element
 // const productList = document.getElementById("product-list");
-const totalPriceCount = document.getElementById("totalPrice");
-const totalCartItemsCount = document.getElementById("totalCartItemsCount");
-const goToCheckout = document.getElementById("goToCheckout");
-const cartTotal = document.getElementById("cartTotal");
+const totalPriceCount = document.getElementById('totalPrice');
+const totalCartItemsCount = document.getElementById('totalCartItemsCount');
+const goToCheckout = document.getElementById('goToCheckout');
+const cartTotal = document.getElementById('cartTotal');
 //Cart button show hide
-const shoppingCartDropdown = document.querySelector("#shoppingCart");
-const cart = document.querySelector("#addToCart");
-const cartItems = document.getElementById("cartItems");
+const shoppingCartDropdown = document.querySelector('#shoppingCart');
+const cart = document.querySelector('#addToCart');
+const cartItems = document.getElementById('cartItems');
 
 //wishtlist html elements
-const wishList = document.querySelector("#addToWishList");
-const wishListDropdown = document.querySelector("#shoppingWishList");
-const WishListItems = document.getElementById("wishListItems");
+const wishList = document.querySelector('#addToWishList');
+const wishListDropdown = document.querySelector('#shoppingWishList');
+const WishListItems = document.getElementById('wishListItems');
 const totalWishListItemsCount = document.getElementById(
-    "totalWishListItemsCount"
+    'totalWishListItemsCount'
 );
 
-cart.addEventListener("click", () => {
+cart.addEventListener('click', () => {
     shoppingCartDropdown.style.display =
-        shoppingCartDropdown.style.display === "block" ? "none" : "block";
+        shoppingCartDropdown.style.display === 'block' ? 'none' : 'block';
 });
 // Function to handle adding a product to the cart
 //cart array
@@ -214,7 +232,7 @@ function addToCart(productId) {
     if (shoppingCart.some((product) => product.id === productId)) {
     } else {
         const product = products.find((product) => product.id === productId);
-        console.log("product", product);
+        console.log('product', product);
         shoppingCart.push({
             ...product,
             numberOfUnits: 1,
@@ -308,23 +326,23 @@ const cartTemplate = (product) => `<li class="flex items-center py-6">
 </div>
 </li>`;
 function renderCartItems() {
-    cartItems.innerHTML = "";
+    cartItems.innerHTML = '';
     shoppingCart.forEach((product) => {
-        cartItems.insertAdjacentHTML("beforeend", cartTemplate(product));
+        cartItems.insertAdjacentHTML('beforeend', cartTemplate(product));
     });
 }
 
 //change number of units
 function changeNumberOfUnits(action, productId) {
-    console.log("shopping cart items", shoppingCart);
+    console.log('shopping cart items', shoppingCart);
 
     shoppingCart.map((product) => {
         let numberOfUnits = product.numberOfUnits;
-        console.log("number of units", numberOfUnits);
+        console.log('number of units', numberOfUnits);
         if (product.id === productId) {
-            if (action === "minus" && numberOfUnits > 1) {
+            if (action === 'minus' && numberOfUnits > 1) {
                 numberOfUnits = product.numberOfUnits--;
-            } else if (action === "plus" && numberOfUnits < product.inStock) {
+            } else if (action === 'plus' && numberOfUnits < product.inStock) {
                 numberOfUnits = product.numberOfUnits++;
             }
             return {
@@ -346,9 +364,9 @@ function removeProductsFromCart(productId) {
 
 //Add to Wishlist
 let shoppingWishlist = [];
-wishList.addEventListener("click", () => {
+wishList.addEventListener('click', () => {
     wishListDropdown.style.display =
-        wishListDropdown.style.display === "block" ? "none" : "block";
+        wishListDropdown.style.display === 'block' ? 'none' : 'block';
 });
 //Render Wishlist Items
 const wishListTemplate = (product) => `<li class="flex items-center py-6">
@@ -384,7 +402,7 @@ function addToWishList(productId) {
     if (shoppingWishlist.some((product) => product.id === productId)) {
     } else {
         const product = products.find((product) => product.id === productId);
-        console.log("product", product);
+        console.log('product', product);
         shoppingWishlist.push({
             ...product,
             numberOfUnits: 1,
@@ -395,10 +413,10 @@ function addToWishList(productId) {
     }
 }
 function renderWishListtItems() {
-    WishListItems.innerHTML = "";
+    WishListItems.innerHTML = '';
     shoppingWishlist.forEach((product) => {
         WishListItems.insertAdjacentHTML(
-            "beforeend",
+            'beforeend',
             wishListTemplate(product)
         );
     });
