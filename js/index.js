@@ -168,7 +168,7 @@ const headerHTML = `<div class="container mx-auto px-4 py-2 flex items-center">
 <hr />`;
 
 //Menu Items
-const headerMenuHtml = ` <div class=' bg-white w-full  sticky top-0 z-50 transition-all duration-100'>
+const headerMenuHtml = ` <div class=' bg-white w-full  sticky top-0  z-40 transition-all duration-100'>
             <div class='container mx-auto px-4 py-5'>
                 <ul
                     class='flex gap-8 md:items-center md:pb-0 pb-12  transition-all dease-in '
@@ -220,6 +220,7 @@ const totalWishListItemsCount = document.getElementById(
 );
 
 cart.addEventListener('click', () => {
+    console.log('hello world');
     shoppingCartDropdown.style.display =
         shoppingCartDropdown.style.display === 'block' ? 'none' : 'block';
 });
