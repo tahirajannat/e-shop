@@ -284,6 +284,7 @@ function renderSubtotal() {
     cartTotal.innerHTML = `$${totalPrice.toFixed(2)}`;
     totalCartItemsCount.innerHTML = `${totalItems}`;
 }
+
 //Render Cart Items
 const cartTemplate = (product) => `<li class="flex items-center py-6">
 <img
